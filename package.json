@@ -1,6 +1,16 @@
 {
   "name": "admin-dashboard",
   "version": "0.1.0",
+  "author": {
+    "name": "Jyotiranjan Sahoo",
+    "email": "jsahoo.p@gmail.com"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "description": "Admin dashboard for an awsome startup!",
   "private": true,
   "scripts": {
     "dev": "next dev",
