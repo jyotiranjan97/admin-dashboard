@@ -1,15 +1,57 @@
-import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
+import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
+import { User } from '@/types/user';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 
-const Home: NextPage = () => {
+type PageProps = {
+  allUsers: User[];
+};
+
+const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    setUsers(allUsers);
+  }, []);
+
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Home</title>
+        <title>Admin UI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h2
+        className="text-xl font-semibold font-sans w-full justify-start"
+        id="title"
+      >
+        Admin UI
+      </h2>
+      <main
+        className={
+          'flex flex-col items-center justify-center w-full flex-1 px-20 text-center'
+        }
+        id="app"
+      >
+        {users.map((user) => (
+          <span key={user.id}>{user.name}</span>
+        ))}
+      </main>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  );
+  const allUsers = await fetchAllUsersFromAPI();
+  return {
+    props: {
+      allUsers,
+    },
+  };
 };
 
 export default Home;
