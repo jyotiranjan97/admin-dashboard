@@ -13,9 +13,11 @@ const Table: FC<Props> = ({ data }) => {
     data && data.map((entity) => <TableRow key={entity.id} data={entity} />);
 
   return (
-    <table className="table table-fixed w-10/12">
-      <TableHead />
-      {tableRows}
+    <table className="table table-fixed w-full">
+      <tbody>
+        <TableHead />
+        {tableRows}
+      </tbody>
     </table>
   );
 };

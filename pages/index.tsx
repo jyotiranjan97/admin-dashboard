@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
 import { User } from '@/types/user';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -10,12 +9,6 @@ type PageProps = {
 };
 
 const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
-  const [users, setUsers] = useState<User[]>([]);
-
-  useEffect(() => {
-    setUsers(allUsers);
-  }, []);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 font-sans">
       <Head>
@@ -30,11 +23,11 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
       </h2>
       <main
         className={
-          'flex flex-col items-center justify-center w-full flex-1 px-20 text-center'
+          'flex flex-col items-center justify-center w-10/12 flex-1 px-20 text-center'
         }
         id="app"
       >
-        <Main data={users} />
+        <Main data={allUsers} />
       </main>
     </div>
   );
