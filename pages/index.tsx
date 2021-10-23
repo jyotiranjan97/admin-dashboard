@@ -3,6 +3,7 @@ import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
 import { User } from '@/types/user';
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
+import Main from '@/components/Main';
 
 type PageProps = {
   allUsers: User[];
@@ -16,7 +17,7 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 font-sans">
       <Head>
         <title>Admin UI</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,9 +34,7 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
         }
         id="app"
       >
-        {users.map((user) => (
-          <span key={user.id}>{user.name}</span>
-        ))}
+        <Main data={users} />
       </main>
     </div>
   );
