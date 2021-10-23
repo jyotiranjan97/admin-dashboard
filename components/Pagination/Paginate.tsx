@@ -18,7 +18,7 @@ const Paginate: FC<Props> = ({ data }) => {
       pages.push(i + 1);
     }
     setTotalPages(pages);
-  }, []);
+  }, [data]);
 
   function getPaginatedData() {
     const startIdx = currentPage * MAXM_DATA_PER_PAGE - MAXM_DATA_PER_PAGE;
