@@ -32,6 +32,7 @@ const Paginate: FC<Props> = ({
       pages.push(i + 1);
     }
     setTotalPages(pages);
+    setCurrentPage(1);
   }, [data]);
 
   function getPaginatedData() {
