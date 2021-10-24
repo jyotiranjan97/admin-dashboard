@@ -4,6 +4,7 @@ import Table from '../Table/Table';
 import Button from '../UI/Button';
 import BackwardIcon from '../UI/Icons/BackwardIcon';
 import ForwardIcon from '../UI/Icons/ForwardIcon';
+import DoubleArrowIcon from '../UI/Icons/DoubleArrowIcon';
 
 type Props = {
   data: User[];
@@ -42,7 +43,7 @@ const Paginate: FC<Props> = ({
   const pageNumbers = totalPages.map((page) => (
     <div
       className={
-        'h-8 w-8 font-medium rounded-full mx-2 p-1 cursor-pointer ' +
+        'h-8 w-8 font-medium rounded-full mx-0.5 p-1 cursor-pointer ' +
         (currentPage === page
           ? 'bg-purple-400 hover:bg-purple-500'
           : 'bg-purple-200 hover:bg-purple-300')
@@ -68,6 +69,14 @@ const Paginate: FC<Props> = ({
     if (currentPage != totalPages.length) {
       setCurrentPage((currentPage) => currentPage + 1);
     }
+  }
+
+  function firstPageClicked() {
+    setCurrentPage(1);
+  }
+
+  function lastPageClicked() {
+    setCurrentPage(totalPages.length);
   }
   // Pagination End -----
 
@@ -114,6 +123,7 @@ const Paginate: FC<Props> = ({
 
   return (
     <div className="grid grid-cols-1">
+      {/** Table */}
       <div
         style={{ height: '100%', minHeight: '27.5rem' }}
         className="overflow-x-auto"
@@ -127,10 +137,9 @@ const Paginate: FC<Props> = ({
           editDetails={editDetails}
         />
       </div>
-      <div
-        className="flex text-gray-700 justify-between flex-wrap mt-3 mb-2 px-3"
-        style={{ height: '4rem' }}
-      >
+
+      <div className="flex text-gray-700 justify-between flex-wrap mt-3 mb-2 px-3">
+        {/** Multiple Delete Button */}
         <section className="my-5 md:my-auto mx-auto md:mx-0">
           <Button
             name="Delete Selected"
@@ -141,27 +150,63 @@ const Paginate: FC<Props> = ({
           />
         </section>
         <section className="flex justify-center my-auto mx-auto md:mx-0">
-          {/** Previous Page */}
+          {/** GoTo First Page Button */}
           <span
             className={
               'h-8 w-8 mr-1 flex justify-center items-center ' +
-              'rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300'
+              'rounded-full transform rotate-180 ' +
+              (currentPage === 1
+                ? 'cursor-not-allowed bg-gray-100'
+                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+            }
+            onClick={firstPageClicked}
+          >
+            <DoubleArrowIcon />
+          </span>
+
+          {/** Previous Page Button */}
+          <span
+            className={
+              'h-8 w-8 mr-0.5 flex justify-center items-center ' +
+              'rounded-full ' +
+              (currentPage === 1
+                ? 'cursor-not-allowed bg-gray-100'
+                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
             }
             onClick={prevPageClicked}
           >
             <BackwardIcon />
           </span>
-          {/** Page Navigators */}
+
+          {/** Page Navigator Buttons */}
           {pageNumbers}
-          {/** Next Page */}
+
+          {/** Next Page Button */}
           <span
             className={
-              'h-8 w-8 ml-1 flex justify-center items-center ' +
-              'rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300'
+              'h-8 w-8 ml-0.5 flex justify-center items-center ' +
+              'rounded-full ' +
+              (currentPage === totalPages.length
+                ? 'cursor-not-allowed bg-gray-100'
+                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
             }
             onClick={nextPageClicked}
           >
             <ForwardIcon />
+          </span>
+
+          {/** GoTo Last Page Button */}
+          <span
+            className={
+              'h-8 w-8 ml-1 flex justify-center items-center ' +
+              'rounded-full ' +
+              (currentPage === totalPages.length
+                ? 'cursor-not-allowed bg-gray-100'
+                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+            }
+            onClick={lastPageClicked}
+          >
+            <DoubleArrowIcon />
           </span>
         </section>
       </div>
