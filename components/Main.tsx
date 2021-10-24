@@ -29,9 +29,7 @@ const Main: FC<Props> = ({ data, setData }) => {
     if (input === '') {
       setUsers(data);
     } else {
-      setUsers((prevState) => {
-        return filterTextInputInData(prevState, input);
-      });
+      setUsers(filterTextInputInData(data, input));
     }
   }
 
