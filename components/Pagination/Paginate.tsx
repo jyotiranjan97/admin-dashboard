@@ -128,7 +128,7 @@ const Paginate: FC<Props> = ({
         />
       </div>
       <div
-        className="flex text-gray-700 justify-between flex-wrap mt-10 px-3"
+        className="flex text-gray-700 justify-between flex-wrap mt-3 mb-2 px-3"
         style={{ height: '4rem' }}
       >
         <section className="my-5 md:my-auto mx-auto md:mx-0">
