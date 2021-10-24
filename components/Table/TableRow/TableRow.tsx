@@ -23,6 +23,7 @@ const TableRow: FC<Props> = ({
   const [editable, setEditable] = useState(false);
   const [name, setName] = useState(data.name);
   const [email, setEmail] = useState(data.email);
+  const [role, setRole] = useState(data.role);
 
   function handleDelete(id: string) {
     deleteUser(id);
@@ -34,7 +35,12 @@ const TableRow: FC<Props> = ({
 
   const handleSave = () => {
     setEditable(false);
-    editDetails({ ...data, name: name, email: email });
+    editDetails({
+      ...data,
+      name: name,
+      email: email,
+      role: role,
+    });
   };
 
   return (
@@ -66,8 +72,11 @@ const TableRow: FC<Props> = ({
         setValue={setEmail}
       />
       <ColoredCell
+        isEditable={editable}
         data={data.role}
         color={data.role === 'admin' ? 'red' : 'green'}
+        value={role}
+        setValue={setRole}
       />
       <ActionCell
         handleDelete={handleDelete}
