@@ -10,7 +10,7 @@ const TableHead: FC<Props> = ({ selectAll, isChecked }) => {
   return (
     <tr
       className={
-        'table-row bg-purple-500 h-10 text-lg text-gray-100 tracking-wide'
+        'table-row bg-purple-500 h-10 text-lg text-white tracking-wide'
       }
     >
       <th className="table-cell w-32">

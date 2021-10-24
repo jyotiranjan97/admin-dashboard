@@ -8,6 +8,8 @@ const SearchInput: FC<Props> = ({ onInputChange }) => {
   return (
     <div className="w-full shadow-sm flex mb-5">
       <input
+        id="search-input"
+        tabIndex={0}
         className={
           'w-full rounded-md p-2 focus:ring ring-purple-600 focus:outline-none ' +
           'border-gray-400 text-lg font-medium'

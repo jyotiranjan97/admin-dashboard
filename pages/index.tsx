@@ -24,6 +24,8 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
           content="Admin UI for an awsome Startup. Built with Next.JS and Tailwind CSS"
         />
       </Head>
+
+      {/** Title */}
       <h2
         className={
           'text-3xl font-semibold font-sans w-11/12 lg:w-3/4 md:w-5/6 ' +
@@ -40,8 +42,10 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
             alt=""
           />
         </span>
-        Admin UI
+        <span>Admin UI</span>
       </h2>
+
+      {/** Main */}
       <main
         className={
           'flex flex-col items-center justify-center lg:w-3/4 md:w-5/6 w-11/12 flex-1 text-center'
@@ -50,12 +54,17 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
       >
         <Main data={totalUsers} setData={setTotalUsers} />
       </main>
-      <footer className="bg-gray-300 h-8 w-full flex justify-center">
+
+      {/** Footer */}
+      <footer
+        className="bg-purple-200 h-8 w-full flex justify-center"
+        id="footer"
+      >
         <span className="text-base font-medium p-1">
           Coding Challenge from{' '}
           <a
             href="https://www.geektrust.in/coding-problem/frontend/adminui"
-            className="text-green-600 underline"
+            className="text-green-700 underline"
             target="_blank"
             rel="noReferrer noopener"
           >
