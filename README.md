@@ -8,7 +8,7 @@ This is an Admmin UI for an Awsome Startup.
 
 Here is the [link](https://admin-dashboard-iota-cyan.vercel.app/), go and play with it 😉.
 
-![Homepage](screenshots\Home.png)
+![Homepage](./screenshots/Home.png)
 
 ### Tech Stack
 
