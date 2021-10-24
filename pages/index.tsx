@@ -13,13 +13,13 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
   var [totalUsers, setTotalUsers] = useState<User[]>(allUsers);
 
   return (
-    <div className="flex flex-col items-center min-h-screen py-2 font-sans">
+    <div className="flex flex-col items-center min-h-screen py-4 overflow-auto font-sans">
       <Head>
         <title>Admin UI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2
-        className="text-3xl font-semibold font-sans w-full md:w-3/4 justify-start"
+        className="text-3xl font-semibold font-sans w-full md:w-3/4 justify-start text-purple-600"
         id="title"
       >
         Admin UI

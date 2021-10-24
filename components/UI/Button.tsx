@@ -12,7 +12,7 @@ const Button: FC<Props> = ({ name, isDisabled, onClick }) => {
       <button
         type="button"
         className={
-          'text-white font-normal tracking-wide py-2 px-3 rounded-lg ' +
+          'text-white font-medium tracking-wider py-2 px-3 rounded-lg ' +
           (isDisabled
             ? 'bg-gray-500 opacity-50 cursor-not-allowed'
             : 'transition duration-200 ease-in-out shadow-lg hover:shadow-xl ' +

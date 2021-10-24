@@ -3,7 +3,7 @@ import { FC } from 'react';
 const EditIcon: FC = () => {
   return (
     <svg
-      className="fill-current text-gray-500"
+      className="fill-current text-purple-700"
       xmlns="http://www.w3.org/2000/svg"
       height="23px"
       viewBox="0 0 24 24"

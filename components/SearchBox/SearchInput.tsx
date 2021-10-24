@@ -9,7 +9,8 @@ const SearchInput: FC<Props> = ({ onInputChange }) => {
     <div className="w-full shadow-sm flex mb-5">
       <input
         className={
-          'w-full rounded-md p-2 focus:ring ring-gray-400 focus:outline-none border-2'
+          'w-full rounded-md p-2 focus:ring ring-purple-600 focus:outline-none ' +
+          'border-gray-400 text-lg font-medium'
         }
         type="text"
         placeholder="Search by name, email or role"

@@ -12,8 +12,8 @@ const ColoredCell: FC<Props> = ({ data, color }) => {
         className={
           'rounded-md text-base font-medium px-3 py-0.5 ' +
           (color === 'green'
-            ? 'text-green-500 bg-green-50'
-            : 'text-red-500 bg-red-50')
+            ? 'text-green-600 bg-green-100'
+            : 'text-red-600 bg-red-100')
         }
       >
         {data}

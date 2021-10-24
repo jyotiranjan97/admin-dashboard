@@ -39,7 +39,12 @@ const TableRow: FC<Props> = ({
 
   return (
     <tr
-      className={'table-row h-10 border-b-2 border-gray-100 hover:bg-gray-100 '}
+      className={
+        'table-row h-10 border-b-2 border-purple-100 ' +
+        (isChecked
+          ? 'bg-red-200 hover:bg-red-300'
+          : 'bg-purple-50 hover:bg-purple-100')
+      }
     >
       <td className="table-cell w-1/5">
         <CheckBox

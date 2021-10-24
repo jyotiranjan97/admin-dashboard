@@ -44,8 +44,8 @@ const Paginate: FC<Props> = ({
       className={
         'h-8 w-8 font-medium rounded-full mx-2 p-1 cursor-pointer ' +
         (currentPage === page
-          ? 'bg-indigo-400 hover:bg-indigo-500'
-          : 'bg-gray-200 hover:bg-gray-300')
+          ? 'bg-purple-400 hover:bg-purple-500'
+          : 'bg-purple-200 hover:bg-purple-300')
       }
       key={page}
       onClick={() => pageClicked(page)}
