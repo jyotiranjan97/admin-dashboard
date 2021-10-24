@@ -157,7 +157,7 @@ const Paginate: FC<Props> = ({
               'rounded-full transform rotate-180 ' +
               (currentPage === 1
                 ? 'cursor-not-allowed bg-gray-100'
-                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+                : 'bg-purple-200 hover:bg-purple-300 cursor-pointer')
             }
             onClick={firstPageClicked}
           >
@@ -171,7 +171,7 @@ const Paginate: FC<Props> = ({
               'rounded-full ' +
               (currentPage === 1
                 ? 'cursor-not-allowed bg-gray-100'
-                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+                : 'bg-purple-200 hover:bg-purple-300 cursor-pointer')
             }
             onClick={prevPageClicked}
           >
@@ -188,7 +188,7 @@ const Paginate: FC<Props> = ({
               'rounded-full ' +
               (currentPage === totalPages.length
                 ? 'cursor-not-allowed bg-gray-100'
-                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+                : 'bg-purple-200 hover:bg-purple-300 cursor-pointer')
             }
             onClick={nextPageClicked}
           >
@@ -202,7 +202,7 @@ const Paginate: FC<Props> = ({
               'rounded-full ' +
               (currentPage === totalPages.length
                 ? 'cursor-not-allowed bg-gray-100'
-                : 'bg-gray-200 cursor-pointer hover:bg-gray-300')
+                : 'bg-purple-200 hover:bg-purple-300 cursor-pointer')
             }
             onClick={lastPageClicked}
           >
