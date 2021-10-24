@@ -65,17 +65,36 @@ const Main: FC<Props> = ({ data, setData }) => {
   }
 
   function multiDelete(uIDs: string[]) {
-    // If user id is present in input uIDs array, remove it
+    // If user id is present in parameter uIDs array, remove it
     setUsers((prevState) =>
       prevState.filter((element) => uIDs.indexOf(element.id) < 0)
     );
-    console.log('Before -', data.length);
-
     setData(data.filter((element) => uIDs.indexOf(element.id) < 0));
-
-    console.log('After -', data.length);
   }
   // Delete Users End ---
+
+  //------------------------------------------------------------------------------
+
+  // Edit Details Start -------
+
+  function onEditDetailsHandler(user: User) {
+    setUsers((prevState) =>
+      prevState.map(function replaceObjectIfIdMatches(element) {
+        if (element.id === user.id) return user;
+        return element;
+      })
+    );
+
+    // API to be called here in case of persistance
+    setData((prevState) =>
+      prevState.map(function replaceObjectIfIdMatches(element) {
+        if (element.id === user.id) return user;
+        return element;
+      })
+    );
+  }
+
+  // Edit Details End -------
 
   return (
     <>
@@ -85,6 +104,7 @@ const Main: FC<Props> = ({ data, setData }) => {
           data={users}
           deleteUser={deleteUser}
           multipleDelete={multiDelete}
+          editDetails={onEditDetailsHandler}
         />
       ) : (
         <span id="no-data">No data to display</span>

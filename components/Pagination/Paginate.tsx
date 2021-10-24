@@ -6,9 +6,15 @@ type Props = {
   data: User[];
   deleteUser: (id: string) => void;
   multipleDelete: (ids: string[]) => void;
+  editDetails: (user: User) => void;
 };
 
-const Paginate: FC<Props> = ({ data, deleteUser, multipleDelete }) => {
+const Paginate: FC<Props> = ({
+  data,
+  deleteUser,
+  multipleDelete,
+  editDetails,
+}) => {
   const MAXM_DATA_PER_PAGE = 10;
 
   const [totalPages, setTotalPages] = useState([1]);
@@ -110,6 +116,7 @@ const Paginate: FC<Props> = ({ data, deleteUser, multipleDelete }) => {
           selectAll={handleToggleAllSelected}
           deleteUser={handleDelete}
           onSelectRow={toggleSelectRow}
+          editDetails={editDetails}
         />
       </div>
       <div className="flex text-gray-700 justify-between mt-8">

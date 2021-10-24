@@ -9,6 +9,7 @@ type Props = {
   selectAll: () => void;
   deleteUser: (id: string | string[]) => void;
   onSelectRow: (id: string) => void;
+  editDetails: (user: User) => void;
 };
 
 const Table: FC<Props> = ({
@@ -17,6 +18,7 @@ const Table: FC<Props> = ({
   selectAll,
   deleteUser,
   onSelectRow,
+  editDetails,
 }) => {
   // Table rows
   const tableRows =
@@ -28,6 +30,7 @@ const Table: FC<Props> = ({
         deleteUser={deleteUser}
         isChecked={selected.indexOf(entity.id) >= 0 ? true : false}
         onSelectRow={onSelectRow}
+        editDetails={editDetails}
       />
     ));
 
