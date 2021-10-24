@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import type { GetServerSideProps, NextPage } from 'next';
 import Main from '@/components/Main';
 import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
@@ -31,6 +32,14 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
         }
         id="title"
       >
+        <span className="mr-2">
+          <Image
+            src={require('../public/admin.png')}
+            height={25}
+            width={25}
+            alt=""
+          />
+        </span>
         Admin UI
       </h2>
       <main
