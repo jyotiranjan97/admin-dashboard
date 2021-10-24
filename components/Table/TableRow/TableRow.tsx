@@ -3,6 +3,7 @@ import { User } from '@/types/user';
 import BasicCell from './BasicCell';
 import ColoredCell from './ColoredCell';
 import ActionCell from './ActionCell';
+import CheckBox from '@/components/UI/CheckBox';
 
 type Props = {
   data: User;
@@ -41,13 +42,10 @@ const TableRow: FC<Props> = ({
       className={'table-row h-10 border-b-2 border-gray-100 hover:bg-gray-100 '}
     >
       <td className="table-cell w-1/5">
-        <input
-          type="checkbox"
-          onChange={() => {
-            onSelectRow(data.id);
-          }}
+        <CheckBox
           value={data.id}
-          checked={isChecked}
+          onChange={() => onSelectRow(data.id)}
+          isChecked={isChecked}
         />
       </td>
       <BasicCell

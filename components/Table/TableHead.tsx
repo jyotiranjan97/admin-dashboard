@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import CheckBox from '../UI/CheckBox';
 
 type Props = {
   selectAll: () => void;
@@ -13,7 +14,7 @@ const TableHead: FC<Props> = ({ selectAll, isChecked }) => {
       }
     >
       <th className="table-cell w-1/5">
-        <input onChange={selectAll} type="checkbox" checked={isChecked} />
+        <CheckBox onChange={selectAll} isChecked={isChecked} />
       </th>
       <th className="table-cell w-1/5 text-left">Name</th>
       <th className="table-cell w-1/5 text-left">Email</th>

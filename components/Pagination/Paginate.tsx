@@ -1,6 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { User } from '@/types/user';
 import Table from '../Table/Table';
+import Button from '../UI/Button';
+import BackwardIcon from '../UI/Icons/BackwardIcon';
+import ForwardIcon from '../UI/Icons/ForwardIcon';
 
 type Props = {
   data: User[];
@@ -86,6 +89,8 @@ const Paginate: FC<Props> = ({
     }
   }
 
+  // -------------------------------------------------------------------------
+
   function handleToggleAllSelected() {
     // Unselect all Ids
     if (selectedIds.length === getPaginatedData().length) {
@@ -108,8 +113,8 @@ const Paginate: FC<Props> = ({
   }
 
   return (
-    <div>
-      <div className="h-auto">
+    <div className="h-auto">
+      <div style={{ height: '27.5rem' }}>
         <Table
           data={getPaginatedData()}
           selected={selectedIds}
@@ -120,63 +125,36 @@ const Paginate: FC<Props> = ({
         />
       </div>
       <div className="flex text-gray-700 justify-between mt-8">
-        {selectedIds.length > 0 ? (
-          <button
-            onClick={() => {
-              handleDelete(selectedIds);
-            }}
-          >
-            Delete Selected
-          </button>
-        ) : (
-          <div></div>
-        )}
+        <Button
+          name="Delete Selected"
+          isDisabled={selectedIds.length <= 0}
+          onClick={() => {
+            handleDelete(selectedIds);
+          }}
+        />
         <section className="flex justify-center">
-          <div
+          {/** Previous Page */}
+          <span
             className={
               'h-8 w-8 mr-1 flex justify-center items-center ' +
               'rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300'
             }
             onClick={prevPageClicked}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-chevron-left w-6 h-6"
-            >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </div>
+            <BackwardIcon />
+          </span>
+          {/** Page Navigators */}
           {pageNumbers}
-          <div
+          {/** Next Page */}
+          <span
             className={
               'h-8 w-8 ml-1 flex justify-center items-center ' +
               'rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300'
             }
             onClick={nextPageClicked}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-chevron-right w-6 h-6"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </div>
+            <ForwardIcon />
+          </span>
         </section>
       </div>
     </div>

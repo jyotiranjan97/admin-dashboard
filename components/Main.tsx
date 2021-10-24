@@ -107,7 +107,11 @@ const Main: FC<Props> = ({ data, setData }) => {
           editDetails={onEditDetailsHandler}
         />
       ) : (
-        <span id="no-data">No data to display</span>
+        <div style={{ height: '27.5rem' }}>
+          <span id="no-data" className="text-lg text-center">
+            No data to display 😞
+          </span>
+        </div>
       )}
     </>
   );
