@@ -113,8 +113,11 @@ const Paginate: FC<Props> = ({
   }
 
   return (
-    <div className="h-auto">
-      <div style={{ height: '27.5rem' }}>
+    <div className="grid grid-cols-1">
+      <div
+        style={{ height: '100%', minHeight: '27.5rem' }}
+        className="overflow-x-auto"
+      >
         <Table
           data={getPaginatedData()}
           selected={selectedIds}
@@ -124,15 +127,20 @@ const Paginate: FC<Props> = ({
           editDetails={editDetails}
         />
       </div>
-      <div className="flex text-gray-700 justify-between mt-8">
-        <Button
-          name="Delete Selected"
-          isDisabled={selectedIds.length <= 0}
-          onClick={() => {
-            handleDelete(selectedIds);
-          }}
-        />
-        <section className="flex justify-center">
+      <div
+        className="flex text-gray-700 justify-between flex-wrap mt-10 px-3"
+        style={{ height: '4rem' }}
+      >
+        <section className="my-5 md:my-auto mx-auto md:mx-0">
+          <Button
+            name="Delete Selected"
+            isDisabled={selectedIds.length <= 0}
+            onClick={() => {
+              handleDelete(selectedIds);
+            }}
+          />
+        </section>
+        <section className="flex justify-center my-auto mx-auto md:mx-0">
           {/** Previous Page */}
           <span
             className={

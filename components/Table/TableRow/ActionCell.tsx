@@ -19,7 +19,7 @@ const ActionCell: FC<Props> = ({
   editable,
 }) => {
   return (
-    <td className="table-cell text-base w-1/5">
+    <td className="table-cell text-base lg:w-1/5 w-32">
       <div className="flex justify-center">
         {editable ? (
           <span

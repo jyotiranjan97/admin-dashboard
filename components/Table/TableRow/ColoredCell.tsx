@@ -7,7 +7,7 @@ type Props = {
 
 const ColoredCell: FC<Props> = ({ data, color }) => {
   return (
-    <td className="table-cell w-1/5 justify-center ">
+    <td className="table-cell lg:w-1/5 w-32 justify-center ">
       <span
         className={
           'rounded-md text-base font-medium px-3 py-0.5 ' +

@@ -46,7 +46,7 @@ const TableRow: FC<Props> = ({
           : 'bg-purple-50 hover:bg-purple-100')
       }
     >
-      <td className="table-cell w-1/5">
+      <td className="table-cell w-32">
         <CheckBox
           value={data.id}
           onChange={() => onSelectRow(data.id)}

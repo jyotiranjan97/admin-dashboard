@@ -11,7 +11,7 @@ const BasicCell: FC<Props> = ({ data, isEditable, value, setValue }) => {
   return (
     <td
       className={
-        'table-cell text-lg font-medium text-gray-700 w-1/5 justify-start text-left'
+        'table-cell text-lg font-medium text-gray-700 lg:w-1/5 w-32 justify-start text-left'
       }
     >
       {isEditable ? (
