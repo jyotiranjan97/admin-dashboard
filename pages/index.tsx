@@ -1,14 +1,17 @@
+import { useState } from 'react';
+import Head from 'next/head';
+import type { GetServerSideProps, NextPage } from 'next';
+import Main from '@/components/Main';
 import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
 import { User } from '@/types/user';
-import type { GetServerSideProps, NextPage } from 'next';
-import Head from 'next/head';
-import Main from '@/components/Main';
 
 type PageProps = {
   allUsers: User[];
 };
 
 const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
+  var [totalUsers, setTotalUsers] = useState<User[]>(allUsers);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 font-sans">
       <Head>
@@ -27,7 +30,7 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
         }
         id="app"
       >
-        <Main data={allUsers} />
+        <Main data={totalUsers} setData={setTotalUsers} />
       </main>
     </div>
   );

@@ -1,8 +1,11 @@
 import { FC } from 'react';
 
-type Props = {};
+type Props = {
+  handleDelete: (id: string) => void;
+  uId: string;
+};
 
-const ActionCell: FC<Props> = ({}) => {
+const ActionCell: FC<Props> = ({ handleDelete, uId }) => {
   return (
     <td className="table-cell text-base w-1/5">
       <div className="flex justify-center">
@@ -25,7 +28,10 @@ const ActionCell: FC<Props> = ({}) => {
             />
           </svg>
         </span>
-        <span className="cursor-pointer hover:bg-red-100 p-1 rounded-md">
+        <span
+          className="cursor-pointer hover:bg-red-100 p-1 rounded-md"
+          onClick={() => handleDelete(uId)}
+        >
           <svg
             className="fill-current text-red-400"
             xmlns="http://www.w3.org/2000/svg"
