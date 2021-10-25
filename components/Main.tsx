@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  FC,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
 import { User } from '@/types/user';
 import Paginate from './Pagination/Paginate';
 import SearchInput from './SearchBox/SearchInput';
@@ -16,13 +9,8 @@ type Props = {
 };
 
 const Main: FC<Props> = ({ data, setData }) => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>(data);
   let debounceTimeout: any = undefined;
-
-  useEffect(() => {
-    setUsers(data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Search Implementaion Start -------
   function search(input: string) {
@@ -42,14 +30,12 @@ const Main: FC<Props> = ({ data, setData }) => {
     );
   }
 
-  function debounceSearch(event: ChangeEvent<HTMLInputElement>) {
-    let inputTxt = event.target.value;
-
+  function debounceSearch(searchInput: string) {
     if (debounceTimeout) {
       window.clearTimeout(debounceTimeout);
     }
     debounceTimeout = window.setTimeout(function () {
-      search(inputTxt);
+      search(searchInput);
     }, 300);
   }
   // Search Implementaion End ------
