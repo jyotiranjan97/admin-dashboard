@@ -31,7 +31,7 @@ const SearchInput: FC<Props> = ({ onInputChange }) => {
         <span
           className={
             'absolute right-2 top-1 rounded-full h-9 w-9 flex p-1.5 ' +
-            'bg-gray-200 hover:bg-gray-300'
+            'bg-gray-200 hover:bg-gray-300 cursor-pointer'
           }
           onClick={() => handleSearch('')}
         >

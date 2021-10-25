@@ -5,6 +5,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import Main from '@/components/Main';
 import { fetchAllUsersFromAPI } from '@/libs/fetchAPIData';
 import { User } from '@/types/user';
+import GitHubIcon from '@/components/UI/Icons/GitHubIcon';
 
 type PageProps = {
   allUsers: User[];
@@ -27,11 +28,7 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
 
       {/** Title */}
       <h2
-        className={
-          'text-3xl font-semibold font-sans w-11/12 lg:w-3/4 md:w-5/6 ' +
-          'justify-start text-purple-600 ' +
-          'mb-2'
-        }
+        className={'w-11/12 lg:w-3/4 md:w-5/6 justify-start mb-2 relative'}
         id="title"
       >
         <span className="mr-2">
@@ -42,7 +39,25 @@ const Home: NextPage<PageProps> = ({ allUsers }: PageProps) => {
             alt=""
           />
         </span>
-        <span>Admin UI</span>
+        <span className="text-3xl font-semibold font-sans text-purple-600">
+          Admin UI
+        </span>
+        {/** Github Link */}
+        <span
+          className={
+            'absolute right-0 h-10 w-10 p-2 rounded-full ' +
+            'hover:bg-gray-100 cursor-pointer'
+          }
+          onClick={() =>
+            window.open(
+              'https://github.com/jyotiranjan97/admin-dashboard',
+              '_blank',
+              'noReferrer,noopener'
+            )
+          }
+        >
+          <GitHubIcon />
+        </span>
       </h2>
 
       {/** Main */}
