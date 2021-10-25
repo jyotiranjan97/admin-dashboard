@@ -4,8 +4,8 @@ const CrossIcon: FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="23"
-      width="23"
+      height="24"
+      width="24"
       viewBox="3 3 16 16"
     >
       <defs>

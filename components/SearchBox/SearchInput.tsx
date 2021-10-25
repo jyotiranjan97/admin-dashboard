@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { FC, useState } from 'react';
 import CrossIcon from '../UI/Icons/CrossIcon';
 
 type Props = {
@@ -31,7 +31,7 @@ const SearchInput: FC<Props> = ({ onInputChange }) => {
         <span
           className={
             'absolute right-2 top-1 rounded-full h-9 w-9 flex p-1.5 ' +
-            'bg-gray-200 hover:bg-gray-300 cursor-pointer'
+            'bg-gray-100 hover:bg-gray-200 cursor-pointer'
           }
           onClick={() => handleSearch('')}
         >

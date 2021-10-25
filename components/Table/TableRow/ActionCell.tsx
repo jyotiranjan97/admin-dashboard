@@ -30,7 +30,7 @@ const ActionCell: FC<Props> = ({
           </span>
         ) : (
           <span
-            className="cursor-pointer hover:bg-purple-100 p-1 rounded-md"
+            className="cursor-pointer hover:bg-purple-200 p-1 rounded-md"
             onClick={handleEdit}
           >
             <EditIcon />

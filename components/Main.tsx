@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { User } from '@/types/user';
 import Paginate from './Pagination/Paginate';
 import SearchInput from './SearchBox/SearchInput';
@@ -89,6 +89,7 @@ const Main: FC<Props> = ({ data, setData }) => {
           deleteUser={deleteUser}
           multipleDelete={multiDelete}
           editDetails={onEditDetailsHandler}
+          totalData={data}
         />
       ) : (
         <div style={{ height: '27.5rem' }}>

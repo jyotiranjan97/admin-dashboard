@@ -11,6 +11,7 @@ type Props = {
   deleteUser: (id: string) => void;
   multipleDelete: (ids: string[]) => void;
   editDetails: (user: User) => void;
+  totalData: User[];
 };
 
 const Paginate: FC<Props> = ({
@@ -18,6 +19,7 @@ const Paginate: FC<Props> = ({
   deleteUser,
   multipleDelete,
   editDetails,
+  totalData,
 }) => {
   const MAXM_DATA_PER_PAGE = 10;
 
@@ -31,11 +33,19 @@ const Paginate: FC<Props> = ({
     for (let i = 0; i < data.length / MAXM_DATA_PER_PAGE; i++) {
       pages.push(i + 1);
     }
+
+    // If user delete all data from last page, change current page
+    if (pages.length < totalPages.length && currentPage === totalPages.length) {
+      setCurrentPage(currentPage - 1);
+    }
+
     setTotalPages(pages);
-    if (data.length < 46) {
+
+    // If user search something, change current page to 1
+    if (data.length < totalData.length) {
       setCurrentPage(1);
     }
-  }, [data]);
+  }, [data, totalData, currentPage, totalPages.length]);
 
   function getPaginatedData() {
     const startIdx = currentPage * MAXM_DATA_PER_PAGE - MAXM_DATA_PER_PAGE;
